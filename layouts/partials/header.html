@@ -4,7 +4,7 @@
         {{ partial "custom-header" . }}
         <title>{{ .Title }}</title>
         {{ partial "theme-css" . }}
-        {{ .Hugo.Generator }}
+        {{ hugo.Generator }}
         
         {{ with .OutputFormats.Get "rss" -}}
           {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
