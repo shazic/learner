@@ -4,10 +4,10 @@
     {{ partial "set-date" .  }}
     <h5>{{ $.Scratch.Get "dated" }}</h5>
 
-    <div class="text-justify">{{ .Content }}</div>
+    <div>{{ .Content }}</div>
 
     {{ if and .Site.DisqusShortname (not .Params.disableComments) }}
-        <h4 class="page-header">Comments</h4>
+        <h4>Comments</h4>
         {{ template "_internal/disqus.html" . }}
     {{ end }}
 
