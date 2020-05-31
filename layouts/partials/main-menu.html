@@ -1,6 +1,21 @@
 <nav class="main-menu">
     {{ $currentPage := . }}
-    {{ range .Site.Menus.main }}
-    <a class="main-menu-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{.URL}}">{{ .Name }}</a>
-    {{ end }}
+    <ul>
+        <li><a href="{{ .Site.BaseURL | absLangURL }}">Home</a></li>
+        {{ range .Site.Menus.main }}
+            {{ if .HasChildren }}
+                <li class="dropdown">
+                    <a class="main-menu-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{.URL}}">{{ .Name }}</a>
+                    <ul class="dropdown-menu">
+                      {{ range .Children }}
+                      <li><a href="{{ .URL | absLangURL }}">{{ .Name }}</a></li>
+                      {{ end }}
+                    </ul>
+                </li>
+            {{ else }}
+                <li><a class="main-menu-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{.URL}}">{{ .Name }}</a></li>
+            {{ end }}
+        {{ end }}
+        {{ partial "search" . }}
+    </ul>
 </nav>

@@ -10,24 +10,31 @@ googleAnalytics = ""
     description = "Distraction Free Theme for Learners."
     dateFormat = ""
 [[menu.main]]
-    url = "/"
-    name = "Home"
+    name = "Courses"
     weight = 1
+    hasChildren = true
+
+    [[menu.main]]
+        url = "/course/"
+        name = "All courses"
+        weight = 1
+        parent = "Courses"
+
+    [[menu.main]]
+        url = "/categories/"
+        name = "Course categories"
+        weight = 2
+        parent = "Courses"
 
 [[menu.main]]
-    url = "/poems/"
-    name = "Poems"
+    url = "/blog/"
+    name = "Blogs"
     weight = 2
-
-[[menu.main]]
-    url = "/stories/"
-    name = "Stories"
-    weight = 3
 
 [[menu.main]]
     url = "/about/"
     name = "About"
-    weight = 4
+    weight = 5
 
 [taxonomies]
   category = "categories"

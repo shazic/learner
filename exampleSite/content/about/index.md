@@ -1,9 +1,9 @@
 ---
-title: "About the tutor"
+title: "About the author"
 draft: false
 layout: about
 ---
 
-## Tutor name
+## Authorname
 
 Description of work.
