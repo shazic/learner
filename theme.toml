@@ -3,7 +3,7 @@ license = "MIT"
 licenselink = "https://github.com/shazic/learner/blob/master/LICENSE.md"
 description = "A distraction free theme for academic websites"
 homepage = "https://github.com/shazic/learner/"
-tags = [ "teachers", "minimal", "google analytics", "clean", "disqus", "font awesome", "simple", starter", "minimalist" ]
+tags = [ "teachers", "minimal", "google analytics", "clean", "disqus", "font awesome", "simple", "minimalist" ]
 features = [blog, website, lms]
 min_version = "0.69.2"
 
