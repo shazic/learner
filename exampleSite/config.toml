@@ -5,8 +5,6 @@ theme = "learner"
 disqusShortname = "username" # delete this to disable disqus comments
 googleAnalytics = ""
 
-sectionPagesMenu = "main"
-
 [params]
     author = "Creative Learner"
     description = "Distraction Free Theme for Learners."
