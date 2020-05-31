@@ -29,6 +29,11 @@ googleAnalytics = ""
     name = "About"
     weight = 4
 
+[taxonomies]
+  category = "categories"
+  level = "levels"
+  tag = "tags"
+
 # Menu with social icons:
 # The "name" field has to match the name of the icon to be used
 
