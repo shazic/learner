@@ -1,0 +1,25 @@
+<div class="container">
+    <h2>Latest Content</h2>
+    {{ .Content }}
+    <div class="row row-cols-1 row-cols-md-3">
+        {{ range .Site.Sections }}
+            {{ range first 6 .Sections }}
+                {{ with .Description }}
+                    {{ $.Scratch.Set "subtitle" . }}
+                {{ end }}
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <img src={{ .Params.thumbnail }} class="card-img-top" alt={{ .Title }}>
+                        <div class="card-body">
+                          <h5 class="card-title">{{ .Title }}</h5>
+                          <p class="card-text">{{ $.Scratch.Get "subtitle" }}</p>
+                          <a href="{{ .Permalink }}" class="btn btn-secondary">Go to this {{ .Section }}</a>
+                          <hr>
+                          <a href="{{ .Section }}">See all {{ .Section }}s</a>
+                        </div>
+                    </div>
+                </div>
+            {{ end }}
+        {{ end }}
+    </div>
+</div>
