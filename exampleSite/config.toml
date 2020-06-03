@@ -6,7 +6,6 @@ disqusShortname = "username" # delete this to disable disqus comments
 googleAnalytics = ""
 
 [params]
-    author = "Creative Learner"
     description = "Distraction Free Theme for Learners."
     dateFormat = ""
 [[menu.main]]
