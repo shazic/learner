@@ -3,7 +3,7 @@
     {{ .Content }}
     <div class="row row-cols-1 row-cols-md-3">
         {{ range .Site.Sections }}
-            {{ range first 6 .Sections }}
+            {{ range first 6 .RegularPages }}
                 {{ with .Description }}
                     {{ $.Scratch.Set "subtitle" . }}
                 {{ end }}
