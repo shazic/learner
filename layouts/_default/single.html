@@ -1,9 +1,6 @@
 {{ partial "combine-header-menu" . }}
 
 <main>
-    {{ partial "set-date" .  }}
-    <h5>{{ $.Scratch.Get "dated" }}</h5>
-
     <div>{{ .Content }}</div>
 
     {{ if and .Site.DisqusShortname (not .Params.disableComments) }}
