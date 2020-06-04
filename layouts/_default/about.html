@@ -1,7 +1,13 @@
 {{ partial "combine-header-menu" . }}
 
 <main>
-    <div>{{ .Content }}</div>
+    <div class="container">
+        <h2>{{ .Title }}</h2>
+        <div>
+            {{ .Content }}
+        </div>
+    </div>
+    
 </main>
 
 {{ partial "footer.html" . }}
