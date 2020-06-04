@@ -1,25 +1,23 @@
 <div class="container">
     <h2>Latest Content</h2>
     {{ .Content }}
-    <div class="row row-cols-1 row-cols-md-3">
         {{ range .Site.Sections }}
-            {{ range first 6 .RegularPages }}
-                {{ with .Description }}
-                    {{ $.Scratch.Set "subtitle" . }}
-                {{ end }}
-                <div class="col mb-4">
-                    <div class="card h-100">
-                        <img src={{ .Params.thumbnail }} class="card-img-top" alt={{ .Title }}>
-                        <div class="card-body">
-                          <h5 class="card-title">{{ .Title }}</h5>
-                          <p class="card-text">{{ $.Scratch.Get "subtitle" }}</p>
-                          <a href="{{ .Permalink }}" class="btn btn-secondary">Go to this {{ .Section }}</a>
-                          <hr>
-                          <a href="{{ .Section }}">See all {{ .Section }}s</a>
-                        </div>
-                    </div>
-                </div>
+        <div class="row row-cols-1 row-cols-md-3">
+            {{ range first 6 .Sections }}
+                {{ partial "list-items" . }}
             {{ end }}
-        {{ end }}
-    </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                {{ with .Sections }}
+                    <ul class="nav nav-pills nav-fill">
+                        <li class="nav-item">
+                            <a class="nav-link active bg-danger" href="{{ ((index . 1).Parent).RelPermalink }}">See all {{ (index . 1).Section }}s >></a>
+                        </li>
+                    </ul>
+                {{ end }}
+            </div>
+        </div>
+    {{ end }}
+
 </div>

@@ -1,0 +1,12 @@
+{{ partial "combine-header-menu" . }}
+
+<main>
+    <div class="container">
+        <a class="my-2" href={{ .Parent.Permalink }}>"{{ .Parent.Title }}" main page</a>
+        <h2 class="my-2">{{ .Title }}</h2>
+        {{ .Content }}
+    </div>
+
+</main>
+
+{{ partial "footer" . }}

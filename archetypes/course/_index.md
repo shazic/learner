@@ -1,5 +1,5 @@
 ---
-title: "CourseTitle"
+title: "{{ replace .Name "-" " " | title }}"
 date: 
 draft: false
 description: "CourseShortDescription"

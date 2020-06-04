@@ -1,0 +1,18 @@
+{{ partial "combine-header-menu" . }}
+
+<main>
+    <div class="container">
+        <h2>{{ .Title }}</h2>
+        {{ .Content }}
+        <ol>
+            {{ range .Pages }}
+            <li>
+                <a href={{ .Permalink }}>{{ .Title }}</a>
+            </li>
+            {{ end }}
+        </ol>
+    </div>
+
+</main>
+
+{{ partial "footer" . }}

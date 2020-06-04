@@ -1,0 +1,16 @@
+{{ partial "combine-header-menu" . }}
+
+<main>
+    <div class="container">
+        <h2>{{ .Title }}</h2>
+        <div class="row row-cols-1 row-cols-md-3">
+            {{ range .Sections }}
+                {{ partial "list-items" . }}
+            {{ end }}
+        </div>
+    </div>
+</main>
+
+{{ partial "paginator" . }}
+
+{{ partial "footer" . }}
