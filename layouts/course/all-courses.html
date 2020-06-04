@@ -4,7 +4,8 @@
     <div class="container">
         <h2>{{ .Title }}</h2>
         <div class="row row-cols-1 row-cols-md-3">
-            {{ range .Sections }}
+            {{ $pagination := .Paginate (where .Sections "Type" "course") }}
+            {{ range $pagination.Pages }}
                 {{ partial "list-items" . }}
             {{ end }}
         </div>
