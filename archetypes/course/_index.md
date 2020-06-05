@@ -29,4 +29,3 @@ Name of the author(s)
 - Pre-requisite 2
 - Pre-requisite 3
 
-### Course Contents
