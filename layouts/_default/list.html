@@ -2,6 +2,7 @@
 
 <main>
     <div class="container">
+        {{ partial "breadcrumbs" .}}
         <h2>{{ .Title }}</h2>
         <div class="row row-cols-1 row-cols-md-3">
             {{ range (.Paginator).Pages }}
