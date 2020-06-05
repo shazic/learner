@@ -20,7 +20,7 @@
             <div class="card-body">
               <h5 class="card-title">{{ .Title }}</h5>
               <p class="card-text">{{ $.Scratch.Get "subtitle" }}</p>
-              <a href="{{ .Scratch.Get "link" }}" class="btn btn-secondary">Go to this {{ .Section | singularize }}</a>
+              <a href="{{ .Scratch.Get "link" }}" class="btn btn-secondary stretched-link">Go to this {{ .Section | singularize }}</a>
             </div>
         </div>
     </div>
