@@ -1,16 +1,16 @@
 {{ partial "combine-header-menu" . }}
 
 <main>
-    {{ partial "set-date" .  }}
-    <h5>{{ $.Scratch.Get "dated" }}</h5>
+    <div class="container">
+        {{ partial "breadcrumbs" .}}
+        <h2 class="my-2">{{ .Title }}</h2>
+        {{ .Content }}
 
-    <div class="text-justify">{{ .Content }}</div>
-
-    {{ if and .Site.DisqusShortname (not .Params.disableComments) }}
-        <h4 class="page-header">Comments</h4>
-        {{ template "_internal/disqus.html" . }}
-    {{ end }}
-
+        {{ if and .Site.DisqusShortname (not .Params.disableComments) }}
+            <h4>Comments</h4>
+            {{ template "_internal/disqus.html" . }}
+        {{ end }}
+    </div>
 </main>
 
 {{ partial "footer" . }}

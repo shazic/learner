@@ -3,12 +3,10 @@
 <main>
     <div class="container">
         {{ partial "breadcrumbs" .}}
-        <h2>{{ .Title }}</h2>
-        <div>
-            {{ .Content }}
-        </div>
+        <h2 class="my-2">{{ .Title }}</h2>
+        {{ .Content }}
     </div>
-    
+
 </main>
 
-{{ partial "footer.html" . }}
+{{ partial "footer" . }}

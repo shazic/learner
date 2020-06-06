@@ -4,22 +4,14 @@
         {{ partial "custom-header" . }}
         <title>{{ .Title }}</title>
         {{ partial "theme-css" . }}
-        {{ .Hugo.Generator }}
+        {{ hugo.Generator }}
         
         {{ with .OutputFormats.Get "rss" -}}
           {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
         {{ end -}}
         
         {{ if .Site.GoogleAnalytics }}
-        <!-- Global Site Tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.GoogleAnalytics }}"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments)};
-          gtag('js', new Date());
-
-          gtag('config', '{{ .Site.GoogleAnalytics }}');
-        </script>
+        {{ template "_internal/google_analytics.html" . }}
         {{ end }}
     </head>
 

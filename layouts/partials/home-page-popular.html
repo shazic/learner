@@ -1,0 +1,23 @@
+<div class="container">
+    <h2>Latest Content</h2>
+    {{ .Content }}
+        {{ range .Site.Sections }}
+        <div class="row row-cols-1 row-cols-md-3">
+            {{ range first 6 .Sections }}
+                {{ partial "list-items" . }}
+            {{ end }}
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                {{ with .Sections }}
+                    <ul class="nav nav-pills nav-fill">
+                        <li class="nav-item">
+                            <a class="nav-link active bg-danger" href="{{ ((index . 1).Parent).RelPermalink }}">See all {{ (index . 1).Section }}s >></a>
+                        </li>
+                    </ul>
+                {{ end }}
+            </div>
+        </div>
+    {{ end }}
+
+</div>

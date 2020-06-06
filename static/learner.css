@@ -1,0 +1,9 @@
+body { padding-top: 55px; }
+@media screen and (max-width: 768px) {
+    body { padding-top: 55px; }
+}
+
+.banner {
+    height: auto;
+    width: 100%;
+}

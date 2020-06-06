@@ -1,16 +1,27 @@
-<div class="item">
+
     {{ $.Scratch.Set "link" .RelPermalink }}
-    
-    {{ partial "set-date" .  }}
     
     {{ with .Description }}
         {{ $.Scratch.Set "subtitle" . }}
     {{ end }}
-    
-    <h4><a href="{{ .Scratch.Get "link" }}">{{ .Title }}</a></h4>
-    <h6>{{ $.Scratch.Get "dated" }}</h6>
-    {{if .Description}}
-    <h5>{{ $.Scratch.Get "subtitle" }}</h5>
+
+    {{ with .Params.thumbnail }}
+        {{ $.Scratch.Set "thumbnail" . }}
+    {{ else }}
+        {{ $.Scratch.Set "card_color" (index (shuffle $.Site.Data.theme_learner.site.card_colors) 1) }}
+        {{ $.Scratch.Set "placeholder_url" ( delimit (slice "https://via.placeholder.com/512x320" ($.Scratch.Get "card_color") "FFFFFF?text") "/") }}
+
+        {{ $.Scratch.Set "thumbnail" (delimit (slice ( $.Scratch.Get "placeholder_url") .Title) "=") }}
     {{ end }}
-</div>
-    
+
+    <div class="col mb-4 my-4">
+        <div class="card h-100">
+            <img src={{ .Scratch.Get "thumbnail" }} class="card-img-top" alt={{ .Title }}>
+            <div class="card-body">
+              <h5 class="card-title">{{ .Title }}</h5>
+              <p class="card-text">{{ $.Scratch.Get "subtitle" }}</p>
+              <a href="{{ .Scratch.Get "link" }}" class="btn btn-secondary stretched-link">Go to this {{ .Section | singularize }}</a>
+            </div>
+        </div>
+    </div>
+

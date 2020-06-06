@@ -1,0 +1,20 @@
+{{ partial "combine-header-menu" . }}
+
+<main>
+    <div class="container">
+        {{ partial "breadcrumbs" .}}
+        <h2>{{ .Title }}</h2>
+        {{ .Content }}
+        <h3>Course Contents</h3>
+        <ol>
+            {{ range .Pages }}
+            <li>
+                <a href={{ .Permalink }}>{{ .Title }}</a>
+            </li>
+            {{ end }}
+        </ol>
+    </div>
+
+</main>
+
+{{ partial "footer" . }}
