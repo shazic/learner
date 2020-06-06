@@ -12,7 +12,7 @@
                 {{ with .Sections }}
                     <ul class="nav nav-pills nav-fill">
                         <li class="nav-item">
-                            <a class="nav-link active bg-danger" href="{{ ((index . 1).Parent).RelPermalink }}">See all {{ (index . 1).Section }}s >></a>
+                            <a class="btn btn-danger" href="{{ ((index . 1).Parent).RelPermalink }}">See all {{ (index . 1).Section }}s >></a>
                         </li>
                     </ul>
                 {{ end }}
