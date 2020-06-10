@@ -1,0 +1,45 @@
+{{ partial "combine-header-menu" . }}
+
+{{/* Loop through each section's _index.md and record all non-unique category in an array */}}
+{{ $categories := slice "" }}
+{{ range $.Site.Sections }}
+    {{ range .Pages }} 
+        {{ with .Page.Params.Categories }}
+            {{ range . }}
+                {{ if not ( in $categories . ) }}
+                    {{ $categories = $categories | append . }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+
+{{ $categories = sort $categories }}
+
+<main>
+    <div class="container">
+        {{ partial "breadcrumbs" .}}
+        <h2>{{ .Title }}</h2>
+
+        {{/* For each category in the array loops though every _index.md page and matches against its front end category */}}
+        {{ range $category := $categories }}
+            <div class="container">
+                <h3>{{ title . }}</h3>
+                <div class="row row-cols-1 row-cols-md-3 my-2 bg-light">
+                    {{ range $.Site.Sections }}
+                        {{ range .Pages }}
+                            {{ if (in .Page.Params.Categories $category) }}
+                                {{ partial "list-items" . }}
+                            {{ end }}
+                        {{ end }}
+                    {{ end }}
+                </div>
+            </div>
+      {{ end }}
+
+    </div>
+</main>
+
+{{ partial "paginator" . }}
+
+{{ partial "footer" . }}
