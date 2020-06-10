@@ -1,8 +1,9 @@
 
-    {{ $.Scratch.Set "link" .RelPermalink }}
+    {{ $link := .RelPermalink }}
+    {{ $subtitle := . }}
     
     {{ with .Description }}
-        {{ $.Scratch.Set "subtitle" . }}
+        {{ $subtitle = . }}
     {{ end }}
 
     {{ with .Params.thumbnail }}
@@ -19,8 +20,8 @@
             <img src={{ .Scratch.Get "thumbnail" }} class="card-img-top" alt={{ .Title }}>
             <div class="card-body">
               <h5 class="card-title">{{ .Title }}</h5>
-              <p class="card-text">{{ $.Scratch.Get "subtitle" }}</p>
-              <a href="{{ .Scratch.Get "link" }}" class="btn btn-secondary stretched-link">Go to this {{ .Section | singularize }}</a>
+              <p class="card-text">{{ $subtitle }}</p>
+              <a href="{{ $link }}" class="btn btn-secondary stretched-link">Go to this {{ .Section | singularize }}</a>
             </div>
         </div>
     </div>
