@@ -1,10 +1,25 @@
 {{ partial "combine-header-menu" . }}
-
+{{ $currentPage := . }}
 <main>
     <div class="container">
         {{ partial "breadcrumbs" .}}
-        <h2 class="my-2">{{ .Title }}</h2>
-        {{ .Content }}
+        <div class="row">
+            <div class="col-md-3 order-2 order-md-1">
+                <div class="list-group">
+                    {{ range .Parent.Pages}}
+                    <a href="{{ .Permalink }}" class="list-group-item list-group-item-action {{ if ( eq $currentPage .) }}disabled{{ end }}">
+                        {{ .Title }}
+                    </a>
+                    {{ end }}
+                </div>
+            </div>
+    
+            <div class="col-md-9 order-md-2">
+                <h2 class="my-2">{{ .Title }}</h2>
+                {{ .Content }}
+            </div>
+        </div>
+
     </div>
 
 </main>
