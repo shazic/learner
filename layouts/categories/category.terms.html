@@ -25,7 +25,7 @@
         {{ range $category := $categories }}
             {{ with $category }}
                 <div class="container">
-                    <h3 class="d-inline p-2 shadow border rounded-pill my-2">{{ title . }}</h3>
+                    <h3 class="d-inline p-2 shadow border rounded-right my-2">{{ title . }}</h3>
                     <div class="row row-cols-1 row-cols-md-3 my-2">
                         {{ range $.Site.Sections }}
                             {{ range .Pages }}
