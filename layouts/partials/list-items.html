@@ -23,6 +23,9 @@
               <p class="card-text">{{ $subtitle }}</p>
               <a href="{{ $link }}" class="btn btn-secondary stretched-link">Go to this {{ .Section | singularize }}</a>
             </div>
+            <div class="card-img-overlay">
+                <small class="badge badge-primary">{{ .Params.Levels }}</small>
+            </div>
         </div>
     </div>
 
