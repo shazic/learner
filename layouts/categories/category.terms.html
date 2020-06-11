@@ -23,19 +23,21 @@
 
         {{/* For each category in the array loops though every _index.md page and matches against its front end category */}}
         {{ range $category := $categories }}
-            <div class="container">
-                <h3>{{ title . }}</h3>
-                <div class="row row-cols-1 row-cols-md-3 my-2 bg-light">
-                    {{ range $.Site.Sections }}
-                        {{ range .Pages }}
-                            {{ if (in .Page.Params.Categories $category) }}
-                                {{ partial "list-items" . }}
+            {{ with $category }}
+                <div class="container">
+                    <h3>{{ title . }}</h3>
+                    <div class="row row-cols-1 row-cols-md-3 my-2">
+                        {{ range $.Site.Sections }}
+                            {{ range .Pages }}
+                                {{ if (in .Page.Params.Categories $category) }}
+                                    {{ partial "list-items" . }}
+                                {{ end }}
                             {{ end }}
                         {{ end }}
-                    {{ end }}
+                    </div>
                 </div>
-            </div>
-      {{ end }}
+            {{ end }}
+        {{ end }}
 
     </div>
 </main>
