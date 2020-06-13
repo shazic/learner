@@ -1,14 +1,18 @@
 {{ partial "combine-header-menu" . }}
 
 <main>
+
+        <div>
+            {{ partial "about-page-banner" . }}
+        </div>
+
     <div class="container">
-        {{ partial "breadcrumbs" .}}
         <h2>{{ .Title }}</h2>
         <div>
             {{ .Content }}
         </div>
     </div>
-    
+
 </main>
 
 {{ partial "footer.html" . }}
