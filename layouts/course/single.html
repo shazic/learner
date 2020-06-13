@@ -20,12 +20,12 @@
                 <div class="row m-2">
                     <div class="col">
                         {{ with .NextInSection }}
-                        <a class="btn btn-primary" href="{{ .Permalink }}"><i class="fas fa-arrow-circle-left"></i> Prev Chapter</a>
+                        <a class="btn btn-primary float-left" href="{{ .Permalink }}"><i class="fas fa-arrow-circle-left"></i> Prev Chapter</a>
                         {{end}}
                     </div>
                     <div class="col">
                         {{ with .PrevInSection }}
-                        <a class="btn btn-primary" href="{{ .Permalink }}">Next Chapter <i class="fas fa-arrow-circle-right"></i></a>
+                        <a class="btn btn-primary float-right" href="{{ .Permalink }}">Next Chapter <i class="fas fa-arrow-circle-right"></i></a>
                         
                         {{end}}
                     </div>
