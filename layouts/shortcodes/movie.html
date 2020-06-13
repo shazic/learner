@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css" />
+{{ if .IsNamedParams }}
+    {{ $poster := .Get "poster" }}
+    {{ $source := .Get "source" }}
+    {{ $type   := .Get "type"   }}
+
+    <div class="embed-responsive embed-responsive-16by9">
+        <video controls crossorigin playsinline {{ with $poster }} poster="{{ . }}" {{ end }}>
+            {{ with $source }}
+                <source
+                    src="{{ . }}"
+                    {{ with $type }}
+                        type="{{ . }}"
+                    {{ else }}
+                        type="video/mp4"
+                    {{ end }}
+                >
+            {{ end }}
+
+            <!-- Fallback for browsers that don't support the <video> element -->
+            {{ with .Get "download" }}
+                {{ if ( eq "true" .)}}
+                    {{ with $source }}
+                    <a href="{{ . }}" download>Download</a>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+       </video>
+    </div>
+
+{{ else }}
+
+    <div class="embed-responsive embed-responsive-16by9">
+        <video controls crossorigin playsinline>
+            <source src="{{ .Get 0 }}" type="video/mp4">
+       </video>
+    </div>
+
+{{ end }}
+
+<script src="https://cdn.plyr.io/3.6.2/plyr.js"></script>
+
