@@ -1,6 +1,6 @@
-        </br>
-        <footer>
-            <div class="bg-light">
+        </div>   {{/* This is the ending of the div with class ".content" (see header.html) */}}
+        <footer class="footer py-2 my-3 bg-light">
+            <div class="container">
                 <center>
                     {{ partial "social-menu" . }}
                     <p>{{ .Site.Params.copyright | default "&copy; All rights reserved. Powered by [Hugo](https://gohugo.io) and [Learner](https://github.com/shazic/learner)" | markdownify }}</p>

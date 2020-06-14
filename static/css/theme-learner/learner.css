@@ -1,4 +1,21 @@
-body { padding-top: 55px; }
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex: 1 0 auto;
+}
+
+.footer {
+    flex-shrink: 0;
+}
+
+body {
+    padding-top: 55px;
+}
 @media screen and (max-width: 768px) {
     body { padding-top: 55px; }
 }
