@@ -4,6 +4,11 @@
     {{ $source := .Get "source" }}
     {{ $type   := .Get "type"   }}
 
+    {{ $captionLanguage := .Get "captionlanguage" }}
+    {{ $captionLabel    := .Get "captionlabel" }}
+    {{ $captionSource   := .Get "captionsource" }}
+
+    {{ $enableDownload := .Get "download" }}
     <div class="embed-responsive embed-responsive-16by9">
         <video controls crossorigin playsinline {{ with $poster }} poster="{{ . }}" {{ end }}>
             {{ with $source }}
@@ -17,6 +22,14 @@
                 >
             {{ end }}
 
+            <!-- Caption files -->
+            <track
+                kind="captions"
+                label={{ with $captionLabel }}{{ . }}{{ end }}
+                srclang={{ with $captionLanguage }}{{ . }}{{ end }}
+                src={{ with $captionSource }}{{ . }}{{ end }}
+                
+            >
             <!-- Fallback for browsers that don't support the <video> element -->
             {{ with .Get "download" }}
                 {{ if ( eq "true" .)}}
